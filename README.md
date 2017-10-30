@@ -5,6 +5,12 @@ TechSelection in Android ,for fast dev
 
 > github主页: https://github.com/hss01248
 
+
+
+开发的工具使用:
+
+[Android-Dev_Tools](/Android-Dev_Tools.md)
+
 # 重中之重： 
 不管用什么第三方库，都要自己再封装一层api
 不要直接用第三方库的api
@@ -49,10 +55,7 @@ https://github.com/jeasonlzy/okhttp-OkGo  这个很多人用,也是傻瓜式使�
 
 https://github.com/jgilfelt/chuck 通过拦截器的方式拿到请求和响应信息,然后显示在一个单独的activity中算是应用内抓包
 
-## 工具
-模拟请求: postman (需要翻墙到chrome商店内下载安装)
-手机/电脑抓包: fiddler.
-https抓包: fiddler4.4.9.2(https抓包成功率最高的一个版本) 请翻墙google下载,国内没有.
+
 
 #  图片加载
 包括普通图片加载和大图加载,以及大图轮播,以及图片的一些特殊效果,比如圆角,圆形,高斯模糊等等.
@@ -391,9 +394,7 @@ https://github.com/yanzhenjie/AndServer
 * [MarsDaemon](https://github.com/Marswin/MarsDaemon) 即使允许自启,强杀后也无法自启
 * [AndroidDaemonService](https://github.com/D-clock/AndroidDaemonService) 即使允许自启,强杀后无法自启
 
-# 代码优化
-findbugs 插件+ PMD插件+ 配置CheckStyles(规范代码格式) + alibaba 代码检查插件
-参见 https://juejin.im/post/58d4e35261ff4b00605326d9
+
 
 
 
@@ -428,33 +429,6 @@ https://bugly.qq.com/docs/user-guide/instruction-manual-android-hotfix/
 # 云存储
 * 七牛云: 云端图片处理功能真是牛逼上了天.之前还根据他们的api封装了个工具类:[QiniuUtils](https://github.com/hss01248/MyImageUtil/blob/master/lib/src/main/java/com/hss01248/frescoloader/QiniuUtils.java)
 * 阿里云: 看api文档,该有的云端处理功能也有,但没有实际用过.有用过的吗?说说看
-
-
-# 调试工具篇
-## 代码侵入型：
-[stetho](https://github.com/facebook/stetho)  web上直接调试网络和数据库
-需要在Application的oncreate处init,网络的话需要给okhttp加一个拦截器.
-
-### 网络抓包
-
-https://github.com/jgilfelt/chuck 通过添加okhttp拦截器的方式拿到请求和响应信息,然后显示在一个本手机上单独的activity中,不需要与电脑联网,json显示已格式化,很清晰
-
-### 数据库调试
-[Android-Debug-Database](https://github.com/amitshekhariitbhu/Android-Debug-Database)  类似stetho的数据库查看功能,也是web端查看,需要与电脑联网.
-
-## 非侵入型
-### 网络抓包 
-* 手机端抓包工具-packet capture 
-  在手机上自建vpn,并导入证书.可以抓所有手机http和https流量.但显示界面上json没有格式化显示.
-
-* 电脑端抓包工具-fiddler 
-  需要手机和电脑在同一个局域网(比较难达成),手机上设置代理,由电脑代理上网. 注意,https抓包需要安装一个证书制作插件,内置制作工具有bug,制作的证书不被系统承认.
-
-## 查看顶层activity
-https://github.com/hss01248/DemoCollections/tree/master/ViewDebugHelper  手机全局查看顶层activity.
-
-
-
 
 
 
