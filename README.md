@@ -11,6 +11,8 @@ TechSelection in Android ,for fast dev
 
 [Android-Dev_Tools](/Android-Dev_Tools.md)
 
+> github主页: https://github.com/hss01248
+
 # 重中之重： 
 不管用什么第三方库，都要自己再封装一层api
 不要直接用第三方库的api
@@ -37,15 +39,19 @@ TechSelection in Android ,for fast dev
 * [LogUtils](https://github.com/pengwei1024/LogUtils) 600多star,所有期望的功能都有,依赖okio
 * [KLog](https://github.com/ZhaoKaiQiang/KLog): 1400+star,功能不如xlog丰富
 
+日志打印的demo对比见:
+https://github.com/hss01248/TestTools
+
 ## 最终选择
-> 综上,获奖选手为XLog,同时,timber可作为应用内部api再次封装的一个参考.或者你就简单包一层.
+> 综上,获奖选手为[LogDelegate](https://github.com/tianzhijiexian/LogDelegate),同时,timber可作为应用内部api再次封装的一个参考.或者你就简单包一层.
 
 #  网络请求
 > 我希望达到的目标是,对着接口文档,api链式调用着配置一下,一个请求就完成了.
-> 懒得去记具体框架里的类啊注解啊什么的,
-> 甚至,http协议的一些复杂内容我也不想涉及,比如缓存控制->把常用的那些缓存模式变成几个int值给我选就行了,我才懒得用的时候考虑请求头响应头什么的.
-> 一句话,傻瓜式使用.
-> 所以,从这个角度看,retrofit不是好的选择.
+懒得去记具体框架里的类啊注解啊什么的,
+甚至,http协议的一些复杂内容我也不想涉及,比如缓存控制->把常用的那些缓存模式变成几个int值给我选就行了,我才懒得用的时候考虑请求头响应头什么的.
+一句话,傻瓜式使用.
+所以,从这个角度看,retrofit不是好的选择.
+
 
 okhttp + chuck
 对okhttp的封装:
@@ -55,6 +61,13 @@ https://github.com/jeasonlzy/okhttp-OkGo  这个很多人用,也是傻瓜式使�
 
 https://github.com/jgilfelt/chuck 通过拦截器的方式拿到请求和响应信息,然后显示在一个单独的activity中算是应用内抓包
 
+## 工具
+* 模拟请求: postman (需要翻墙到chrome商店内下载安装)或者fiddler
+* 手机/电脑抓包: fiddler.
+* apk应用内抓包: chuck
+* https抓包: fiddler最新版+ fiddler证书生成插件
+* 弱网络模拟: fiddler可模拟adsl低网速,但无法模拟tcp丢包情况
+* 网络日志打印: [LoggingInterceptor](https://github.com/ihsanbal/LoggingInterceptor)
 
 
 #  图片加载
@@ -191,8 +204,8 @@ https://github.com/Blankj/AndroidUtilCode
 
 # 键盘监听
 > 键盘监听是android一大坑.
-> 防止自动弹出键盘:
-> activity 标签里加android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
+防止自动弹出键盘:
+activity 标签里加android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
 
 https://github.com/yshrsmz/KeyboardVisibilityEvent
 
@@ -262,8 +275,8 @@ https://github.com/bufferapp/BufferTextInputLayout 对design包里的TextInputLa
 * 可以用appcompat包里的AppCompatEditText,
 * 或者用design包里的TextInputEditText.
 * 如果UI是自己搞,那么直接用TextInputLayout+TextInputEditText,各种提示UI,显示隐藏密码,基本的校验都集成了.
-  使用很简单,看这里:[TextInput详解 · Material Design Part 1](https://zhuanlan.zhihu.com/p/22402340)
-
+使用很简单,看这里:[TextInput详解 · Material Design Part 1](https://zhuanlan.zhihu.com/p/22402340)
+ 
 
 ## button
 写那么多的selector烦死人了,用这个吧:
@@ -302,6 +315,12 @@ https://github.com/WuXiaolong/PullLoadMoreRecyclerView 少定制,快速上手
 https://github.com/hongyangAndroid/baseAdapter 鸿洋大神出品
 [关于Android RecyclerView的那些开源LayoutManager](https://mp.weixin.qq.com/s/59YLxK8C5IGwwpZ9P8NjZw)
 
+## 动态的linearlayout或者scrollview里嵌套listview
+* 使用 封装好的动态LinearLayout:[ListViewLinearLayout](https://github.com/hss01248/ListViewLinearLayout)
+* 或者使用封装好的通用adapter: [all-base-adapter](https://github.com/mcxtzhang/all-base-adapter)
+
+
+
 ## 下拉刷新
 看这个汇总就好了:
 https://github.com/android-cjj/BeautifulRefreshLayout
@@ -317,6 +336,7 @@ https://github.com/hss01248/UmengUtil
 # 第三方推送
 [集成第三方推送最佳实践](http://www.jianshu.com/p/d650d02a1c7a)
 一句话来,小米rom就用小米推送,其他用友盟推送,更细致一点,还可以华为rom用华为推送
+开源库: [OnePush](https://github.com/pengyuantao/OnePush)
 
 
 
@@ -353,13 +373,13 @@ https://github.com/hss01248/SafeMediaPlayer
 # 视频相关
  ## 短视频录制和播放:
  >  第三方的趣拍已经收费了,一年5万,略贵.下面这个是开源中比较好的,不过没有特效.
-
+ 
  https://github.com/mabeijianxi/small-video-record
-
+ 
  > 有特效的要收费,比如这个,录制过程中有滤镜,录制后贴图,加音乐.
-
+ 
  https://github.com/rdsdk/rdVideoEditSDK-for-Android
-
+ 
 
 # 视频播放
 
@@ -378,9 +398,22 @@ https://github.com/hss01248/SafeMediaPlayer
 FastBle
 https://github.com/Jasonchenlijian/FastBle
 
+# 相机拍照和拍视频的兼容
+> Android相机兼容性问题非常大,如果只是拍照,尽量调用系统相机,如果需要预览和拿视频流,那么可以基于这个开源库开发:
+
+* https://github.com/google/cameraview  久不更新
+* https://github.com/wonderkiln/CameraKit-Android 反应迟钝,兼容性不佳
+* https://github.com/Fotoapparat/Fotoapparat 一打开就crash,一身的bug
+* https://github.com/natario1/CameraView 兼容性不错,反应灵敏
+* https://github.com/florent37/CameraFragment 好好的view不用,用什么fragment,差评
+* https://github.com/hujiaweibujidao/cameraview 基于google/cameraview修改,对应[blog](http://javayhu.me/blog/2017/09/25/camera-development-experience-on-android/)
+
+最终建议使用: https://github.com/natario1/CameraView
+ 
+
 # android上建轻量级http服务器
 > 本质上是提供http通信渠道
-> 下面的库,是用java原生的serversocket来接收信息,然后用org.apache.http包来解析http相关信息,然后自己像写severlet一样处理.
+下面的库,是用java原生的serversocket来接收信息,然后用org.apache.http包来解析http相关信息,然后自己像写severlet一样处理.
 
 https://github.com/yanzhenjie/AndServer
 
@@ -394,7 +427,9 @@ https://github.com/yanzhenjie/AndServer
 * [MarsDaemon](https://github.com/Marswin/MarsDaemon) 即使允许自启,强杀后也无法自启
 * [AndroidDaemonService](https://github.com/D-clock/AndroidDaemonService) 即使允许自启,强杀后无法自启
 
-
+# 代码优化
+findbugs 插件+ PMD插件+ 配置CheckStyles(规范代码格式) + alibaba 代码检查插件
+参见 https://juejin.im/post/58d4e35261ff4b00605326d9
 
 
 
@@ -431,6 +466,33 @@ https://bugly.qq.com/docs/user-guide/instruction-manual-android-hotfix/
 * 阿里云: 看api文档,该有的云端处理功能也有,但没有实际用过.有用过的吗?说说看
 
 
+# 调试工具篇
+## 代码侵入型：
+[stetho](https://github.com/facebook/stetho)  web上直接调试网络和数据库
+需要在Application的oncreate处init,网络的话需要给okhttp加一个拦截器.
+
+### 网络抓包
+
+https://github.com/jgilfelt/chuck 通过添加okhttp拦截器的方式拿到请求和响应信息,然后显示在一个本手机上单独的activity中,不需要与电脑联网,json显示已格式化,很清晰
+
+### 数据库调试
+[Android-Debug-Database](https://github.com/amitshekhariitbhu/Android-Debug-Database)  类似stetho的数据库查看功能,也是web端查看,需要与电脑联网.
+
+## 非侵入型
+### 网络抓包 
+* 手机端抓包工具-packet capture 
+在手机上自建vpn,并导入证书.可以抓所有手机http和https流量.但显示界面上json没有格式化显示.
+
+* 电脑端抓包工具-fiddler 
+需要手机和电脑在同一个局域网(比较难达成),手机上设置代理,由电脑代理上网. 注意,https抓包需要安装一个证书制作插件,内置制作工具有bug,制作的证书不被系统承认.
+
+## 查看顶层activity
+https://github.com/hss01248/DemoCollections/tree/master/ViewDebugHelper  手机全局查看顶层activity.
+
+
+
+
+
 
 
 # 一些牛逼的小技巧
@@ -462,5 +524,8 @@ https://github.com/Tim9Liu9/TimLiu-Android
 https://github.com/Lafree317/ShareAndroidResource
 https://github.com/limedroid/XDroid/wiki
 https://github.com/aritraroy/UltimateAndroidReference
+
+
+
 
 
